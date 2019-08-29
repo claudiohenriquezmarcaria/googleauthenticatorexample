@@ -19,7 +19,7 @@
         <strong>Account Secret Key (randomly generated):</strong> <asp:Label runat="server" ID="lblSecretKey"></asp:Label>
         <hr />
         <strong>Setup QR Code:</strong><br />
-        <asp:Image ID="imgQrCode" runat="server" /><br />
+        <asp:Image ID="imgQrCode" runat="server" style="max-width:150px"/><br />
         <br />
         <strong>Manual Setup Code: </strong> <asp:Label runat="server" ID="lblManualSetupCode"></asp:Label>
         <hr />

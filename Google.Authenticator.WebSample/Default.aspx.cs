@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Google.Authenticator.WebSample
 {
@@ -19,12 +23,13 @@ namespace Google.Authenticator.WebSample
             this.lblSecretKey.Text = Request.QueryString["key"];
 
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
-            var setupInfo = tfa.GenerateSetupCode("Test Two Factor", "user@example.com", Request.QueryString["key"], false, 300);
+            var setupInfo = tfa.GenerateSetupCode("Marcaria.com OTP", "user@example.com", Request.QueryString["key"], false, 300);
 
             string qrCodeImageUrl = setupInfo.QrCodeSetupImageUrl;
             string manualEntrySetupCode = setupInfo.ManualEntryKey;
 
-            this.imgQrCode.ImageUrl = "data:image/png;base64," + qrCodeImageUrl;
+       
+            this.imgQrCode.ImageUrl = qrCodeImageUrl;
             this.lblManualSetupCode.Text = manualEntrySetupCode;
         }
 
